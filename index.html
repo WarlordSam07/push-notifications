@@ -7,16 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TeamAstra</title>
 
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-    <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() {
-            OneSignal.init({
-                appId: "869548f3-4a7e-4e78-8b9b-086fe583149d",
-            });
-        });
-    </script>
-
 </head>
 
 <body>
@@ -24,13 +14,10 @@
     <button onclick="subscribe()">Subscribe</button>
 
     <script>
-        if ('serviceWorker' in navigator) {
-
-            addEventListener("load", async() => {
-                let sw = await navigator.serviceWorker.register("./sw.js")
-                console.log(sw)
-            });
-        }
+        addEventListener("load", async() => {
+            let sw = await navigator.serviceWorker.register("./sw.js")
+            console.log(sw)
+        })
 
         async function subscribe() {
             let sw = await navigator.serviceWorker.ready;
@@ -38,16 +25,8 @@
                 userVisibleOnly: true,
                 applicationServerKey: 'BIPipHRIvFdi-2zFffnCkBv8kyli0DWAIXvUPsoM_4MNoSxG-bD97qgBXz6IvEbmdymGKsMz3NGqq6fd7IQgIaw'
             })
-            console.log(JSON.stringify(push));
-
-            fetch('https://weatherapitestx.azurewebsites.net/subscription', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(push)
-            });
-        }
+            console.log(JSON.stringify(push))
+        };
     </script>
 
 </body>
