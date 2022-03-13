@@ -1,7 +1,7 @@
 self.addEventListener('push', function(e) {
     var options = {
-        body: 'This notification was generated from a push!',
-        icon: 'images/example.png',
+        body: 'Hello MITians!',
+        icon: 'images/mit.png',
         vibrate: [100, 50, 100],
         data: {
             dateOfArrival: Date.now(),
@@ -9,9 +9,11 @@ self.addEventListener('push', function(e) {
         },
         actions: [{
                 action: 'explore',
-                title: 'Explore this new world',
+                title: 'Accept',
                 icon: 'images/checkmark.png'
             },
+
+
             {
                 action: 'close',
                 title: 'Close',
